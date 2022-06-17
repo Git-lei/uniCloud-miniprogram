@@ -42,7 +42,7 @@ exports.main = async (event, context) => {
 	let user = await db.collection('users').where({"openid": Wx_userinfo.openid}).get()
 	if (user.data.length == 0) {
 		let Token_res = await getToken({APPID,APPSECRET})
-		let res = await db.collection("users").add({..Wx_userinfo,...{'access_token':Token_res.data.access_token,"expires_in":Token_res.data.expires_in}})
+		let res = await db.collection("users").add({...Wx_userinfo,...{'access_token':Token_res.data.access_token,"expires_in":Token_res.data.expires_in}})
 	} else {
 		if (user.data[0].expires_in > new Date().getTime()) {
 			Wx_userinfo = {...Wx_userinfo,...user.data[0]}
@@ -54,7 +54,7 @@ exports.main = async (event, context) => {
 			}
 		}
 	}
-	let user = await db.collection('users').where({"openid": Wx_userinfo.openid}).get()
+	user = await db.collection('users').where({"openid": Wx_userinfo.openid}).get()
 	Wx_userinfo = {...Wx_userinfo,...user.data[0]}
 
 	//返回数据给客户端

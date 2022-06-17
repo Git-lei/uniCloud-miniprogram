@@ -9165,9 +9165,9 @@ function normalizeComponent (
         "192.168.137.1",
         "192.168.101.78"
     ],
-    "debugPort": 57439,
+    "debugPort": 51805,
     "initialLaunchType": "local",
-    "servePort": 57440,
+    "servePort": 51806,
     "skipFiles": [
         "<node_internals>/**/*.js",
         "D:/HBuilderX/plugins/unicloud/**/*.js"
